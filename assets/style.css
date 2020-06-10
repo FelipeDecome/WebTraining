@@ -127,3 +127,37 @@ input::-webkit-inner-spin-button {
     margin: 0;
     /* <-- Apparently some margin are still there even though it's hidden */
 }
+
+#errorContainer {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 3px 8px;
+    border-radius: 5px;
+    font-family: var(--font-serif);
+    color: var(--color-err-light);
+    border: 1px solid var(--color-err-light);
+    box-shadow: 0 3px 5px var(--color-disabled);
+    animation: fade 500ms ease;
+}
+
+#errorContainer::after {
+    content: '';
+    position: absolute;
+    top: 25px;
+    right: 120px;
+    border-right: 6px solid transparent;
+    border-left: 6px solid transparent;
+    border-top: 6px solid var(--color-err-light);
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
