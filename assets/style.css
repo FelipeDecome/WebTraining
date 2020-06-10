@@ -5,6 +5,7 @@
     --color-bg: #eff3f1;
 
     --color-disabled: #dfdfdf;
+    --color-text-dark: #333;
     --color-text-medium: #555;
     --color-text-light: #ABABAB;
     --color-green: #34d79c;
@@ -36,9 +37,32 @@
     flex-direction: column;
     justify-content: center;
     align-content: center;
-    padding: 80px 60px;
+    padding: 40px 60px 80px;
     border-radius: 10px;
     box-shadow: 0 3px 5px var(--color-disabled);
+}
+
+.form-title {
+    font-family: var(--font-sans);
+    font-size: 24px;
+    text-align: center;
+    color: var(--color-text-light);
+
+}
+
+.form-title::after {
+    content: '';
+    background-color: var(--color-disabled);
+    height: 1px;
+    width: 100%;
+    display: block;
+    margin: 30px 0 15px;
+}
+
+.form-title span {
+    font-size: 32px;
+    font-weight: bold;
+    color: var(--color-text-medium);
 }
 
 .form-group {
@@ -62,6 +86,7 @@
 }
 
 .form-group input {
+    position: relative;
     font-family: var(--font-sans);
     font-size: 14px;
     height: 35px;
