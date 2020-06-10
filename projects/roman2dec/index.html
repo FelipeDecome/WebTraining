@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="../../assets/style.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <form class="form-panel">
+            <p class="form-title">
+                Conversor
+                <br />
+                <span>Romano</span>
+                &#x27A1;
+                <span>Decimal</span>
+            </p>
+            <div class="form-group">
+                <input type="number" placeholder="Digite apenas números Romanos" name="roman" required>
+                <label for="roman">Romano</label>
+                <span id="errorContainer"></span>
+            </div>
+            <div class="form-group">
+                <input type="number" placeholder="Esperando pelo número" name="decimal" disabled required>
+                <label for="decimal">Decimal</label>
+            </div>
+        </form>
+
+    </div>
+
+</body>
+<script src="script.js"></script>
+
+</html>
