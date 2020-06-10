@@ -1,5 +1,7 @@
-const inpBin = document.querySelector('[name=binary]');
-const inpDec = document.querySelector('[name=decimal]');
+const $ = document.querySelector.bind(document);
+
+const inpBin = $('[name=binary]');
+const inpDec = $('[name=decimal]');
 
 inpBin.addEventListener('keypress', handleBinaryInput);
 
@@ -7,16 +9,41 @@ function handleBinaryInput(evt) {
 
     evt.preventDefault();
 
-    if (evt.target.value.length <= 8 && /\b[10]+\b/.test(evt.key)) {
+    if (/\b[10]+\b/.test(evt.key)) {
 
         evt.target.value += evt.key;
+        handleBinaryInputChange();
+    } else {
+        handleErrorMessage("Digite apenas '0' ou '1'");
     }
-
-    handleBinaryInputChange();
 }
 
 function handleBinaryInputChange(evt) {
 
     inpDec.value = parseInt(inpBin.value, 2);
-    console.log(inpDec)
+}
+
+function handleErrorMessage(errMsg) {
+    let container = $('.errorContainer');
+
+    if (container) {
+        let errorContainer = document.createElement('span');
+        errorContainer.classList.add('errorContainer');
+
+        inpBin.parentNode.insertAdjacentElement('beforeend', errorContainer);
+
+        container = $('.errorContainer');
+    } else {
+
+        container.style.display = 'none';
+    }
+
+    if (errMsg != '') {
+
+        container.innerText = errMsg;
+        setTimeout(() => {
+            container.innerText = '';
+            container.style.display = 'none';
+        }, 2000);
+    }
 }
