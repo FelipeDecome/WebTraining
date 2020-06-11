@@ -7,10 +7,13 @@
     <title>Document</title>
 
     <link rel="stylesheet" href="../../assets/style.css">
-    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+
+    <div class="errorContainer">
+        <div id="anchor"></div>
+    </div>
 
     <div class="container">
 
@@ -19,13 +22,12 @@
                 Conversor
                 <br />
                 <span>Romano</span>
-                &#x27A1;
+                &#x2794;
                 <span>Decimal</span>
             </p>
             <div class="form-group">
-                <input type="number" placeholder="Digite apenas números Romanos" name="roman" required>
+                <input type="text" placeholder="Digite apenas números Romanos" name="roman" required>
                 <label for="roman">Romano</label>
-                <span id="errorContainer"></span>
             </div>
             <div class="form-group">
                 <input type="number" placeholder="Esperando pelo número" name="decimal" disabled required>
