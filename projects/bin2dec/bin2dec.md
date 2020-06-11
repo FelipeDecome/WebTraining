@@ -1,5 +1,7 @@
 # Bin2Dec
 
+-   [Codepen](https://codepen.io/felipedecome/full/poggqdy)
+
 **Tier:** 1-Beginner
 
 Binary is the number system all digital computers are based on.
@@ -28,6 +30,7 @@ constraints:
 ## Bonus features
 
 -   [x] User can enter a variable number of binary digits
+-   [x] Converts automatically on typing
 
 ## Useful links and resources
 

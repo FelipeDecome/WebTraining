@@ -3,7 +3,7 @@ const $ = document.querySelector.bind(document);
 const inpBin = $('[name=binary]');
 const inpDec = $('[name=decimal]');
 
-const container = $('#errorContainer');
+const errContainer = $('.errorContainer');
 
 inpBin.addEventListener('input', handleBinaryInputChange);
 inpBin.addEventListener('keypress', handleBinaryInput);
@@ -31,12 +31,15 @@ function handleErrorMessage(errMsg) {
 
     if (errMsg != '') {
 
-        container.innerText = errMsg;
-        container.style.display = 'block';
+        let msg = document.createElement('span');
+        msg.classList.add('errorMsg');
+
+        msg.innerText = errMsg;
+
+        errContainer.append(msg);
 
         setTimeout(() => {
-            container.innerText = '';
-            container.style.display = 'none';
+            msg.remove();
         }, 3000);
     }
 }
