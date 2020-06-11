@@ -5,6 +5,7 @@ const inpDec = $('[name=decimal]');
 
 const container = $('#errorContainer');
 
+inpBin.addEventListener('input', handleBinaryInputChange);
 inpBin.addEventListener('keypress', handleBinaryInput);
 
 function handleBinaryInput(evt) {
@@ -16,6 +17,7 @@ function handleBinaryInput(evt) {
         evt.target.value += evt.key;
         handleBinaryInputChange();
     } else {
+
         handleErrorMessage("Digite apenas '0' ou '1'");
     }
 }
@@ -35,6 +37,6 @@ function handleErrorMessage(errMsg) {
         setTimeout(() => {
             container.innerText = '';
             container.style.display = 'none';
-        }, 2000);
+        }, 3000);
     }
 }
