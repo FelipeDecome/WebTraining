@@ -1,2 +1,2 @@
 # WebTraining
- Simple projects for develop my skills
+ Simple projects to develop my skills
