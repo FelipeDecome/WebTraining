@@ -4,7 +4,7 @@
 
     --color-bg: #eff3f1;
 
-    --color-disabled: #dfdfdf;
+    --color-disabled: #efefef;
     --color-text-dark: #333;
     --color-text-medium: #555;
     --color-text-light: #ABABAB;
@@ -66,6 +66,7 @@
     font-size: 32px;
     font-weight: bold;
     color: var(--color-text-medium);
+    line-height: 40px;
 }
 
 .form-group {
@@ -82,8 +83,8 @@
 }
 
 .form-group label {
-    font-family: var(--font-serif);
-    font-size: 18px;
+    font-family: var(--font-sans);
+    font-size: 16px;
     color: var(--color-text-medium);
     margin: 0 0 12px 5px;
     transition: var(--eff-transition);
