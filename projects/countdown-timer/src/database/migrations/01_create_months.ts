@@ -6,12 +6,13 @@ export async function up(knex: Knex) {
 
         table.increments('id').primary();
 
-        table.integer('month_ref').notNullable();
+        table.string('monFull').notNullable();
+        table.integer('monNum').notNullable();
         table.integer('year').notNullable();
     });
 }
 
 export async function down(knex: Knex) {
 
-    return knex.schema.dropTable('events');
+    return knex.schema.dropTable('months');
 }
