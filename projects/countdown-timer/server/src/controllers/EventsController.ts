@@ -1,25 +1,25 @@
 import { Request, Response } from 'express'
 import knex from './../database/conn'
+import knexnest from 'knex'
+
+interface Event {
+    monFull: string
+}
 
 export default class EventsController {
 
     async index(request: Request, response: Response) {
 
-        const { month } = request.params
+        // Buscar por evento
+        const events: Event[] =
+            await knex('events')
+                .join('events_month', 'events.id', '=', 'events_month.event_id')
+                .join('months', 'events_month.month_id', '=', 'months.id')
+                .select('events.*', 'months.monFull')
 
-        // Buscar por evento e separar por mês
+        const parsedEvents = events.sort((e1, e2) => e2.monFull - e1.monFull)
 
-        // const events = await knex('events').select('*')
-        const eventIds =
-            await knex('months')
-                .join('events_month', 'months.id', '=', 'events_month.month_id')
-                .where('months.monFull', month)
-                .orWhere('months.monNum', month)
-                .select('events_month.event_id')
-
-        // const events =
-
-        return response.json(eventIds)
+        return response.json(parsedEvents)
     }
 
     async create(request: Request, response: Response) {

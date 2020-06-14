@@ -9,6 +9,6 @@ const eventsController = new EventsController()
 
 router.post('/events', eventsController.create)
 
-router.get('/events/:month', eventsController.index)
+router.get('/events', eventsController.index)
 
 export default router
