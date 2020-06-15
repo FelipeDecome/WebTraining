@@ -1,5 +1,12 @@
 class CounterModel {
 
+
+    /* 
+     * Modelo pro tempo (Recebe em ms e separa por s, m, h e d)
+     * Funções pra gerenciar o incremendo ou decremento no tempo
+     * Controller pra gerenciar a contagem e verificar quando o timeout tiver acabado (Testar verificacao com timeout)
+     *  
+     */
     constructor(time) {
 
         this._timeToGo = time
