@@ -24,13 +24,13 @@
 
         const seconds = document.querySelector('#seconds')
 
-        function setSeconds(time) {
-            seconds.innerText = time.s
+        function setTimer(counter) {
+            seconds.innerText = `${counter.d} : ${counter.h} : ${counter.m} : ${counter.s} : ${counter.ms}`
         }
 
-        const counter = new CounterModel()
+        const counter = new CounterModel(time)
 
-        counter.subscribeObs(setSeconds)
+        counter.subscribeObs(setTimer)
     </script>
 </body>
 
