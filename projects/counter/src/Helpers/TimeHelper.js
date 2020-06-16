@@ -7,7 +7,10 @@ class TimeHelper {
      */
     static parseTime(time) {
 
-        const timeInMiliseconds = time
+        /**
+         * ? Value to parse
+         */
+        const timeInMiliseconds = time * 100
 
         /**
          * ? Value in Miliseconds of each
@@ -53,8 +56,8 @@ class TimeHelper {
             hour,
             minutes,
             seconds,
-            miliseconds,
-            timeInMiliseconds
+            miliseconds
+            // ! timeInMiliseconds
         }
     }
 

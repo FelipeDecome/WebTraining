@@ -14,18 +14,45 @@
 
     <script src="src/Helpers/TimeHelper.js"></script>
     <script src="src/models/Time.js"></script>
-    <script src="src/models/CounterModel.js"></script>
+    <script src="src/models/Counter.js"></script>
     <script>
         const seconds = document.querySelector('#seconds')
 
         function setTimer(counter) {
-            seconds.innerText = `${counter.d} : ${counter.h} : ${counter.m} : ${counter.s} : ${counter.ms}`
+            seconds.innerText =
+                `${counter.day} : ${counter.hour} : ${counter.minutes} : ${counter.seconds} : ${counter.miliseconds}`
         }
 
         const time = new Time()
 
-        time.setTime()
-        console.log(time.getTime())
+        const state = {
+            intervalId: 0
+        }
+
+        setTimer(time.getTime())
+        document.addEventListener('keypress', (evt) => {
+
+            if (evt.key === 's') {
+
+                state.intervalId = init()
+            }
+
+            if (evt.key === 'p') {
+
+                stop(state.intervalId)
+            }
+        })
+
+        function init() {
+            return setInterval(() => {
+
+                setTimer(time.decrease().getTime())
+            }, 100)
+        }
+
+        function stop(id) {
+            clearInterval(id)
+        }
     </script>
 </body>
 
