@@ -12,25 +12,20 @@
 
     <span id="seconds"></span>
 
+    <script src="src/Helpers/TimeHelper.js"></script>
+    <script src="src/models/Time.js"></script>
     <script src="src/models/CounterModel.js"></script>
     <script>
-        const time = {
-            d: 1,
-            h: 2,
-            m: 30,
-            s: 48,
-            ms: 0
-        }
-
         const seconds = document.querySelector('#seconds')
 
         function setTimer(counter) {
             seconds.innerText = `${counter.d} : ${counter.h} : ${counter.m} : ${counter.s} : ${counter.ms}`
         }
 
-        const counter = new CounterModel(time)
+        const time = new Time()
 
-        counter.subscribeObs(setTimer)
+        time.setTime()
+        console.log(time.getTime())
     </script>
 </body>
 
