@@ -1,8 +1,8 @@
 class Time {
 
-    constructor() {
+    constructor(time) {
 
-        this._timeInMiliseconds = 0
+        this._timeInMiliseconds = time
     }
 
     increase() {
@@ -19,7 +19,7 @@ class Time {
 
     getTime() {
 
-        return TimeHelper.parseTime(this._timeInMiliseconds)
+        return this._timeInMiliseconds
     }
 
     setTime(time) {
