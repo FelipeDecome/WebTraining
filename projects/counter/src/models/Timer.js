@@ -1,7 +1,8 @@
 /**
- * DONE Modelo pro tempo (Recebe em ms e separa por s, m, h e d) DONE
+ * DONE Modelo pro tempo (Recebe em ms e separa por s, m, h e d)
  * DONE Funções pra gerenciar o incremendo ou decremento no tempo
- * TODO Controller pra gerenciar a contagem e verificar quando o timeout tiver acabado (Testar verificacao com timeout) 
+ * DONE Controller pra gerenciar a contagem
+ * TODO Verificar quando o timeout tiver acabado (Testar verificacao com timeout) 
  */
 
 class Timer {
@@ -9,23 +10,36 @@ class Timer {
     constructor(initialValue) {
 
         this._startValue = initialValue
-        this._initialValue = new Time(initialValue)
-        this._intervalId = 0
+        this._initialValue = 0
+        this._interval = {
+            id: 0,
+            time: 0
+        }
     }
 
     /**
      * Implementar nas filhas
      */
-    start() {}
+    start(time) {
+
+        throw new Error("Método 'start' precisa ser implementado")
+    }
+
+    continue () {
+
+        return this._interval.id !== 0 ?
+            this.start(this._interval.time) :
+            'Nenhum timer está pausado';
+    }
+
+    pause() {
+
+        clearInterval(this._interval.id)
+    }
 
     stop() {
 
-        clearInterval(this._intervalId)
-    }
-
-    reset() {
-
-        this._initialValue.setTime(this._startValue)
-        clearInterval(this._intervalId)
+        this._initialValue = 0
+        clearInterval(this._interval.id)
     }
 }

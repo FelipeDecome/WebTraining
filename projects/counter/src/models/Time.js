@@ -1,3 +1,7 @@
+/**
+ * TODO Adicionar padrão Observer ao Objeto Time
+ */
+
 class Time {
 
     constructor(time) {
@@ -22,8 +26,8 @@ class Time {
         return this._timeInMiliseconds
     }
 
-    setTime(time) {
+    // setTime(time) {
 
-        this._timeInMiliseconds = time
-    }
+    //     this._timeInMiliseconds = time
+    // }
 }

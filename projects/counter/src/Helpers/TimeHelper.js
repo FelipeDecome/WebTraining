@@ -5,12 +5,12 @@ class TimeHelper {
      * @param {*} time 
      * @returns {day, hour, minutes, seconds, miliseconds, timeInMiliseconds}
      */
-    static parseTime(time) {
+    static parseTime(time, conversion) {
 
         /**
          * ? Value to parse
          */
-        const timeInMiliseconds = time * 100
+        const timeInMiliseconds = time * conversion
 
         /**
          * ? Value in Miliseconds of each
@@ -44,7 +44,7 @@ class TimeHelper {
          * ? Seconds
          */
         const seconds = Math.floor(moduleMinutes / timePatterns.seconds)
-        const moduleSeconds = moduleMinutes % timePatterns.seconds
+        const moduleSeconds = Math.floor(moduleMinutes % timePatterns.seconds)
 
         /**
          * ? Miliseconds

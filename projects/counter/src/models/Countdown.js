@@ -6,14 +6,26 @@ class Countdown extends Timer {
         this._callback = callback
     }
 
+    init(time) {
+
+        this._initialValue = new Time(this._startValue / time)
+
+        this.start(time)
+    }
+
     start(time) {
 
-        this._intervalId = setInterval(() => {
+        const intervalId = setInterval(() => {
 
             this._initialValue.decrease()
 
-            this._callback(TimeHelper.parseTime(this._initialValue.getTime()))
+            return this._callback(TimeHelper.parseTime(this._initialValue.getTime(), time))
         }, time);
+
+        this._interval = {
+            id: intervalId,
+            time: time
+        }
     }
 
 }

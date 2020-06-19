@@ -12,6 +12,15 @@
 
     <span id="seconds"></span>
 
+    <input type="numer" name="timeSpeed" id="timeSpeed" />
+
+    <ul>
+        <button onclick="countdown.init(document.querySelector('#timeSpeed').value)">Start</button>
+        <button onclick="countdown.continue()">Continue</button>
+        <button onclick="countdown.pause()">Pause</button>
+        <button onclick="countdown.stop()">Stop</button>
+    </ul>
+
     <script src="src/Controller/TimerController.js"></script>
     <script src="src/Helpers/TimeHelper.js"></script>
 
@@ -23,9 +32,7 @@
         const seconds = document.querySelector('#seconds')
 
         const timer = new TimerController()
-        const countdown = timer.createCountdown(1860 * 60 * 60 * 24 * 10 * 50, seconds)
-
-        // countdown.start()
+        const countdown = timer.createCountdown((48 * 60 * 1000) + (45 * 1000), seconds)
     </script>
 </body>
 
