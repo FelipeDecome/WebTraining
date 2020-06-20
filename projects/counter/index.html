@@ -38,6 +38,14 @@
             color: #1f1f1f;
         }
 
+        svg {
+            transform: rotate(-90deg);
+        }
+
+        svg circle {
+            transition: all 500ms ease;
+        }
+
         svg circle:first-child {
             stroke: #333333;
         }
@@ -84,7 +92,7 @@
 
         const view = new ClockView(document.querySelector('#view'))
 
-        const date = new Date('2020/06/19 22:00:00')
+        const date = new Date('2020/06/20 12:27:00')
 
         const countdown = new Countdown(TimeHelper.getTimeLeft(date), (model) => {
             view.update(model)
