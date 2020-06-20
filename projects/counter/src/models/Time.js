@@ -1,5 +1,5 @@
 /**
- * TODO Adicionar padrão Observer ao Objeto Time
+ * DONE Adicionar padrão Observer ao Objeto Time
  */
 
 class Time {
@@ -7,17 +7,23 @@ class Time {
     constructor(time) {
 
         this._timeInMiliseconds = time
+
+        this._observers = []
     }
 
-    increase() {
+    increase(value) {
 
-        this._timeInMiliseconds++
+        this._timeInMiliseconds += value
+
+        this.notifyAll()
         return this
     }
 
-    decrease() {
+    decrease(value) {
 
-        this._timeInMiliseconds--
+        this._timeInMiliseconds -= value
+
+        this.notifyAll()
         return this
     }
 
@@ -26,8 +32,17 @@ class Time {
         return this._timeInMiliseconds
     }
 
-    // setTime(time) {
+    subscribeObs(obs) {
 
-    //     this._timeInMiliseconds = time
-    // }
+        if (this._observers.includes(obs)) {
+            return
+        }
+
+        return this._observers.push(obs)
+    }
+
+    notifyAll() {
+
+        return this._observers.forEach(obs => obs(this.getTime()))
+    }
 }

@@ -1,8 +1,5 @@
 /** 
  * DONE Preparar os Milisegundos nessa parte (* 1000 | * 100 | * 10)
- * ! Conversão de miliseconds para dia hora minutos e segundos aqui
- * ! Criar o timer 'countdown'e 'countTo'
- * ! Remover esse controller e criar o countdown diretamente apenas recebendo uma callback
  */
 class TimerController {
 

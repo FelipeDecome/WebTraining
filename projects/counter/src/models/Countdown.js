@@ -1,31 +1,33 @@
 class Countdown extends Timer {
 
-    constructor(initialValue, callback) {
+    constructor(initialValue, view) {
+
         super(initialValue)
-
-        this._callback = callback
+        this._view = view
     }
 
-    init(time) {
+    init(counterSpeed) {
 
-        this._initialValue = new Time(this._startValue / time)
+        this._initialValue = new Time(this._startValue)
+        this._interval.counterSpeed = counterSpeed
 
-        this.start(time)
+        this._initialValue.subscribeObs(this._view)
+
+        this._initialValue.notifyAll()
+        this.start()
     }
 
-    start(time) {
+    start() {
+
+        const counterSpeed = this._interval.counterSpeed
+        const time = this._initialValue
 
         const intervalId = setInterval(() => {
 
-            this._initialValue.decrease()
+            time.decrease(counterSpeed)
+        }, counterSpeed);
 
-            return this._callback(TimeHelper.parseTime(this._initialValue.getTime(), time))
-        }, time);
-
-        this._interval = {
-            id: intervalId,
-            time: time
-        }
+        this._interval.id = intervalId
     }
 
 }

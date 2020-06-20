@@ -5,12 +5,12 @@ class TimeHelper {
      * @param {*} time 
      * @returns {day, hour, minutes, seconds, miliseconds, timeInMiliseconds}
      */
-    static parseTime(time, conversion) {
+    static parseTime(time) {
 
         /**
          * ? Value to parse
          */
-        const timeInMiliseconds = time * conversion
+        const timeInMiliseconds = time
 
         /**
          * ? Value in Miliseconds of each
@@ -61,8 +61,8 @@ class TimeHelper {
         }
     }
 
-    static getTimeDifference(time1, time2) {
+    static getTimeLeft(time) {
 
-        return Math.abs(time1 - time2)
+        return time - Date.now()
     }
 }
