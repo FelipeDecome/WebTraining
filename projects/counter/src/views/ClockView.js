@@ -3,11 +3,18 @@ class ClockView {
     constructor(htmlElement) {
 
         this._container = htmlElement
-
-        console.log(htmlElement.childNodes)
     }
 
     _template(model) {
+
+        if (model <= 0) {
+
+            return `
+                <div id="time-container">
+                    <span>Time Out</span>
+                </div>
+        `
+        }
 
         const {
             hour,
@@ -15,8 +22,8 @@ class ClockView {
             seconds
         } = TimeHelper.parseTime(model)
 
-        const minSecPer = 1.66666666667
-        const hourPer = 8.33333333333
+        const minSecPer = 100 / 60
+        const hourPer = 100 / 12
 
         const circlesArray = {
             hour: 400 / 100 * 46 * Math.PI * 2,
@@ -24,8 +31,10 @@ class ClockView {
             seconds: 400 / 100 * 31 * Math.PI * 2
         }
 
+        const hours = hour > 12 ? hour - 12 : hour
+
         const circlesOffset = {
-            hour: circlesArray.hour / 100 * (Math.abs(hour - 12) * hourPer),
+            hour: circlesArray.hour / 100 * (Math.abs(hours - 12) * hourPer),
             minutes: circlesArray.minutes / 100 * (Math.abs(minutes - 60) * minSecPer),
             seconds: circlesArray.seconds / 100 * (Math.abs(seconds - 60) * minSecPer),
         }

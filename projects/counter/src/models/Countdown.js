@@ -24,7 +24,13 @@ class Countdown extends Timer {
 
         const intervalId = setInterval(() => {
 
-            time.decrease(counterSpeed)
+            while (this._initialValue.getTime() > 0) {
+
+                return time.decrease(counterSpeed)
+            }
+
+            this.stop()
+
         }, counterSpeed);
 
         this._interval.id = intervalId
